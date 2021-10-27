@@ -1,0 +1,28 @@
+
+.list {
+    font-size: 14px;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: inherit;
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .listItem {
+    float: left;
+    color: inherit;
+    position: relative;
+    display: list-item;
+    width: auto;
+    margin:0;
+    padding: 0;
+  }
+
+  .navbar {
+      background-color: beige;
+      padding: auto;
+  }
