@@ -1,5 +1,7 @@
 import styles  from '../../styles/Clans.module.css'
 import  Link  from 'next/link'
+import Layout from '../../components/Layout/Layout';
+
 export const getStaticProps = async () => {
     const res = await fetch('https://jsonplaceholder.typicode.com/users');
     const data = await res.json();
@@ -25,3 +27,11 @@ const Clans = ({clans}) => {
 }
 
 export default Clans;
+
+Clans.getLayout = function getLayout(page) {
+    return (
+      <Layout>
+        {page}
+      </Layout>
+    )
+  }

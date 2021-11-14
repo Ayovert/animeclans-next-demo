@@ -1,3 +1,4 @@
+import Layout from "../components/Layout/Layout";
 
 const About = () => {
     return (
@@ -11,3 +12,11 @@ const About = () => {
   }
    
   export default About;
+
+  About.getLayout = function getLayout(page) {
+    return (
+      <Layout>
+        {page}
+      </Layout>
+    )
+  }

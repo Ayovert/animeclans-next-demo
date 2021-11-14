@@ -42,14 +42,13 @@ a {
   
 }
 
-nav {
+/*nav {
   margin: 10px auto 80px;
   margin-top: 0;
   padding: 10px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #dddddd;
   position: relative;
   
 }
@@ -59,6 +58,7 @@ nav a {
 nav .logo {
   margin-right: auto;
 }
+*/
 footer {
   display: block;
   text-align: center;

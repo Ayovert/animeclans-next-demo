@@ -1,5 +1,14 @@
-function About() {
-    return <div>About</div>
+import Layout from "../components/Layout/Layout";
+function Food() {
+    return <div>Food</div>
   }
   
-  export default About
+  export default Food;
+
+  Food.getLayout = function getLayout(page) {
+    return (
+      <Layout>
+        {page}
+      </Layout>
+    )
+  }

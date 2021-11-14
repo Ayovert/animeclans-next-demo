@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Layout from '../components/Layout/Layout';
 
 
 
@@ -27,3 +28,11 @@ const router = useRouter()
 }
  
 export default NotFound;
+
+NotFound.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
+}
