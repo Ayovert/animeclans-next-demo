@@ -1,86 +1,72 @@
 import Footer from "../Footer"
 import Navbar from "../NavBar/Navbar"
+import Banner from "../Banner/Banner"
 import Link from "next/link";
-import styles from '../../styles/Home.module.css'
+import styles from './Layout.module.css';
 import Image from "next/image";
 
 
 
-const Layout = ({ children, home }) => {
+const Layout = ({ children, home, product }) => {
   return (
     <div className="content">
       {
-        home ?(
+        home ? (
           <>
-            <section className={styles.homepageBanner} >
-              <div className={`${styles.bannerContent} ${styles.container}`}>
-                <Navbar home/>
-                <div className={styles.row}>
-                <div style={{flex:1, float:'left'}}>
-                <h2 className={styles.bannerTitle}>Test</h2>
-                <div className={styles.bannerDescription}>
-                  Description
-                </div>
 
-                </div>
-                
-
-                <div style={{flex:1, float:'left'}}>
-                  
-                <Image
-            priority
-            src="/../public/logo.png"
-            className={styles.borderCircle}
-            height={108}
-            width={108}
-            alt='image'
-            />
-                </div>
-                
-                </div>
-                <div>
-                <Link href="">
-                  <a>
-                    Go to store
-                  </a>
-                </Link>
-                </div>
-              </div>
-
-            </section>
+            <Banner />
             <div className="children-content">
               {children}
             </div>
-            <Footer />
           </>
-        ) : (
+        ): 
+        
+        product ? (
           <>
             <Navbar />
-            <div className="children-content">
+            <div className="product-content">
               {children}
             </div>
-            <Footer />
+            
           </>
-        )}
-
+        ):(
+          <>
+            <Navbar />
+            <div className={styles.productContent}>
+              {children}
+            </div>
+            
+          </>
+        )
+        
+        }
       {
         !home && (
           <div>
-            <Footer/>
             <Link href="/">
               <a>🔙 Back to home</a>
             </Link>
-            
+
           </div>
         )
       }
-
+      <Footer />
     </div>
+    
   );
 }
 
 export default Layout;
 /*
+
+<Image
+                      priority
+                      src="/../public/logo.png"
+                      className={styles.borderCircle}
+                      height={108}
+                      width={108}
+                      alt='image'
+                    />
 return <div className={styles.container}>
     <Head>
         <link rel="icon" href="/favicon.ico"/>

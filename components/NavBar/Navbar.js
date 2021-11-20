@@ -13,6 +13,21 @@ import { useEffect } from 'react';
 const Navbar =({home})=>
 {
 
+  const [scrolled,setScrolled]= useState(false);
+  let navBar =styles.navbar;
+const handleScroll=() => {
+    const offset=window.scrollY;
+    if(offset > 200 ){
+      setScrolled(true);
+    }
+    else{
+      setScrolled(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll',handleScroll)
+  })
 
 
   const[isActive, setIsActive] = useState(false);
@@ -29,10 +44,11 @@ const Navbar =({home})=>
 
     return(
       
-        <nav className = {styles.navbar}>
-        <div className="logo">
+        <nav className = {`${navBar} ${scrolled ? styles.scrolled : null} ${styles.row}`}>
+        <div className={styles.logo}>
           <Image src="/logo.png" width={50} height={60} alt="Logo"/>
         </div>
+        <div className={`${styles.navMenuContainer}`}>
       <ul className={`${styles.navMenu} ${isActive ? styles.active : null}`}>
           <li className={styles.navItem} >
         <Link 
@@ -55,7 +71,15 @@ const Navbar =({home})=>
         href="/food"><a className={navLink}>Ninja Listing</a>
         </Link>
         </li>
+
+        <li className={styles.navItem}>
+        <Link 
+        
+        href="/products/"><a className={navLink}>Card</a>
+        </Link>
+        </li>
         </ul>
+        </div>
         <div className={`${styles.hamburger} 
         ${isActive ? styles.active : null}`} 
         onClick={toggleClass}>

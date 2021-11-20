@@ -1,10 +1,10 @@
 import Navbar from "../NavBar/Navbar"
 import Link from "next/link";
-import styles from '../../styles/Banner.module.css'
+import styles from './Banner.module.css'
 import Image from "next/image";
 
 
-const Banner = () =>{
+ const Banner = () =>{
     return(
         <section className={styles.homepageBanner} >
               <div className={`${styles.bannerContent} ${styles.container}`}>
@@ -19,17 +19,6 @@ const Banner = () =>{
                 </div>
                 
 
-                <div style={{flex:1, float:'left'}}>
-                  
-                <Image
-            priority
-            src="/../public/logo.png"
-            className={styles.borderCircle}
-            height={108}
-            width={108}
-            alt='image'
-            />
-                </div>
                 
                 </div>
                 <div>
@@ -44,3 +33,20 @@ const Banner = () =>{
             </section>
     )
 }
+
+export default Banner;
+
+/*
+<div style={{flex:1, float:'left'}}>
+                  
+                <Image
+            priority
+            src="/../public/logo.png"
+            className={styles.borderCircle}
+            height={108}
+            width={108}
+            alt='image'
+            />
+                </div>
+                
+*/
