@@ -33,3 +33,7 @@ yarn-error.log*
 # vercel
 .vercel
 
+pages/blog.js
+pages/products/[id].js
+pages/products/card.js
+
