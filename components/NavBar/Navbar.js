@@ -1,10 +1,11 @@
 import Link from "next/link";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import styles from "./Navbar.module.css";
 import Image from 'next/image'
-import { useState } from "react";
-import { useEffect } from 'react';
+import { useContext, useState, useEffect } from "react";
+import AuthContext from "../../stores/authContext";
+import { Button } from "@material-ui/core";
+
+
 
 
 
@@ -12,6 +13,10 @@ import { useEffect } from 'react';
 
 const Navbar =({home})=>
 {
+  const { user, login } = useContext(AuthContext);
+
+  console.log(user);
+  
 
   const [scrolled,setScrolled]= useState(false);
   let navBar =styles.navbar;
@@ -27,7 +32,7 @@ const handleScroll=() => {
 
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
-  })
+  },[])
 
 
   const[isActive, setIsActive] = useState(false);
@@ -77,6 +82,11 @@ const handleScroll=() => {
         
         href="/products/"><a className={navLink}>Card</a>
         </Link>
+        </li>
+
+        <li className={`${styles.navItem} `} >
+          <Button onClick={login} className={`${navLink}`} variant="outlined">Login/SignUp</Button>
+        
         </li>
         </ul>
         </div>

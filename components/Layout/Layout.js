@@ -4,11 +4,13 @@ import Banner from "../Banner/Banner"
 import Link from "next/link";
 import styles from './Layout.module.css';
 import Image from "next/image";
+import { AuthContextProvider } from "../../stores/authContext";
 
 
 
 const Layout = ({ children, home, product }) => {
   return (
+    <AuthContextProvider>
     <div className="content">
       {
         home ? (
@@ -52,6 +54,7 @@ const Layout = ({ children, home, product }) => {
       }
       <Footer />
     </div>
+    </AuthContextProvider>
     
   );
 }

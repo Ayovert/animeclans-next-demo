@@ -22,7 +22,7 @@ import Image from "next/image";
                 
                 </div>
                 <div>
-                <Link href="">
+                <Link href="/">
                   <a>
                     Go to store
                   </a>

@@ -46,7 +46,7 @@ export default function Products( {clans} ){
       <h1 style={{fontFamily : "'Estonia', cursive", fontSize: '4rem', top: 15, left: 30}}>Products</h1>
       <div className={styles.trending}>
       <Button variant="contained" style={{ top: 15, left: 10}}>Trending</Button>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 4, md: 12 }}>
+      <Grid container columns={{ xs: 2, sm: 4, md: 12 }}>
       {clanx.map(clan => (
       
       <>
@@ -54,9 +54,9 @@ export default function Products( {clans} ){
 
        
   
-    <Grid item xs={12} sm={6} md={4} key={clan.id} 
+    <Grid item xs={12} sm={6} md={4}
     style={classes.paper}>
-    <Card sx={{minWidth : 200}} style={{width: 300}}>
+    <Card sx={{minWidth : 200}} style={{width: 300}} key={clan.id} >
     <CardActionArea>
         <CardMedia
           component="img"
@@ -95,16 +95,16 @@ export default function Products( {clans} ){
 
 
 <Button variant="contained">Categories</Button>
-<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 4, md: 12 }}>
+<Grid container columns={{ xs: 2, sm: 4, md: 12 }}>
 {clanx.map(clan => (
   <>
  
 
  
 
-<Grid item xs={12} sm={6} md={4} key={clan.id} 
+<Grid item xs={12} sm={6} md={4} 
 style={classes.paper}>
-<Card sx={{minWidth : 200}} style={{width: 300}}>
+<Card sx={{minWidth : 200}} key={clan.id}  style={{width: 300}}>
 <CardActionArea>
   <CardMedia
     component="img"
@@ -156,9 +156,3 @@ Products.getLayout = function getLayout(product) {
   )
 }
 
-
-/* <Link href={'/clans/' + clan.id} key={clan.id}>
-                   <a className={styles.single}>
-                   <h3>{clan.name}</h3>
-                   </a>
-               </Link>*/
