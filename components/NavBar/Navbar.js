@@ -13,7 +13,7 @@ import { Button } from "@material-ui/core";
 
 const Navbar =({home})=>
 {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, logout, authReady } = useContext(AuthContext);
 
   console.log(user);
   
@@ -54,7 +54,9 @@ const handleScroll=() => {
           <Image src="/logo.png" width={50} height={60} alt="Logo"/>
         </div>
         <div className={`${styles.navMenuContainer}`}>
-      <ul className={`${styles.navMenu} ${isActive ? styles.active : null}`}>
+          {/*{authReady && (*/}
+
+      <ul className={`${styles.navMenu} ${isActive ? styles.active : null}`} key={""}>
           <li className={styles.navItem} >
         <Link 
         href="/"><a className={navLink} >Home</a></Link>
@@ -84,11 +86,19 @@ const handleScroll=() => {
         </Link>
         </li>
 
-        <li className={`${styles.navItem} `} >
-          <Button onClick={login} className={`${navLink}`} variant="outlined">Login/SignUp</Button>
-        
-        </li>
+        {!user && <li className={`${styles.navItem} `} >
+          <Button onClick={login} className={`${navLink} ${styles.navButton}`}  variant="outlined">Login/SignUp</Button>
+        </li>}
+
+        {user && <li className={`${styles.navItem} `} >
+       <a className={navLink}>{user.email}</a>
+        </li>}
+
+        {user && <li className={`${styles.navItem} `} >
+          <Button onClick={logout} className={`${navLink} ${styles.navButton}`}  variant="outlined">Logout</Button>
+        </li>}
         </ul>
+          {/*)}*/}
         </div>
         <div className={`${styles.hamburger} 
         ${isActive ? styles.active : null}`} 

@@ -34,7 +34,6 @@ const classes = {
 };
 
 
-
 export default function Products( {clans} ){
   let clanx= clans.slice(0, 3);
 
@@ -49,14 +48,14 @@ export default function Products( {clans} ){
       <Grid container columns={{ xs: 2, sm: 4, md: 12 }}>
       {clanx.map(clan => (
       
-      <>
+      <div key={clan.id}>
        
 
        
   
     <Grid item xs={12} sm={6} md={4}
     style={classes.paper}>
-    <Card sx={{minWidth : 200}} style={{width: 300}} key={clan.id} >
+    <Card sx={{minWidth : 200}} style={{width: 300}}  >
     <CardActionArea>
         <CardMedia
           component="img"
@@ -68,7 +67,7 @@ export default function Products( {clans} ){
           <Typography gutterBottom variant="h5" component="div">
             Anime Hoodie
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="textSecondary">
             #6000
           </Typography>
         </CardContent>
@@ -85,7 +84,7 @@ export default function Products( {clans} ){
     </Grid>
   
 
-        </>
+        </div>
       ))}
       </Grid>
     
@@ -97,7 +96,7 @@ export default function Products( {clans} ){
 <Button variant="contained">Categories</Button>
 <Grid container columns={{ xs: 2, sm: 4, md: 12 }}>
 {clanx.map(clan => (
-  <>
+  <div key={clan.id}>
  
 
  
@@ -116,7 +115,7 @@ style={classes.paper}>
     <Typography gutterBottom variant="h5" component="div">
       Anime Hoodie
     </Typography>
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color="textSecondary">
       #6000
     </Typography>
   </CardContent>
@@ -133,7 +132,7 @@ style={classes.paper}>
 </Grid>
 
 
-  </>
+  </div>
 ))}
 </Grid>
 
