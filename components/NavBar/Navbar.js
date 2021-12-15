@@ -19,7 +19,9 @@ const Navbar =({home})=>
   
 
   const [scrolled,setScrolled]= useState(false);
+
   let navBar =styles.navbar;
+
 const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -32,6 +34,10 @@ const handleScroll=() => {
 
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
+
+    return () => {
+      setScrolled({})
+    };
   },[])
 
 
@@ -54,7 +60,7 @@ const handleScroll=() => {
           <Image src="/logo.png" width={50} height={60} alt="Logo"/>
         </div>
         <div className={`${styles.navMenuContainer}`}>
-          {/*{authReady && (*/}
+          {authReady && (
 
       <ul className={`${styles.navMenu} ${isActive ? styles.active : null}`} key={""}>
           <li className={styles.navItem} >
@@ -87,18 +93,20 @@ const handleScroll=() => {
         </li>
 
         {!user && <li className={`${styles.navItem} `} >
-          <Button onClick={login} className={`${navLink} ${styles.navButton}`}  variant="outlined">Login/SignUp</Button>
+          <Button onClick={login} className={`${navLink} ${styles.navButton}`} 
+           variant="outlined">Login/SignUp</Button>
         </li>}
 
         {user && <li className={`${styles.navItem} `} >
-       <a className={navLink}>{user.email}</a>
+       <span className={navLink}>{user.email}</span>
         </li>}
 
         {user && <li className={`${styles.navItem} `} >
-          <Button onClick={logout} className={`${navLink} ${styles.navButton}`}  variant="outlined">Logout</Button>
+          <Button onClick={logout} className={`${navLink} ${styles.navButton}`}  
+          variant="outlined">Logout</Button>
         </li>}
         </ul>
-          {/*)}*/}
+          )}
         </div>
         <div className={`${styles.hamburger} 
         ${isActive ? styles.active : null}`} 
