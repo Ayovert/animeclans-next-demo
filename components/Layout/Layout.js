@@ -1,4 +1,4 @@
-import Footer from "../Footer"
+import Footer from "../Footer/Footer"
 import Navbar from "../NavBar/Navbar"
 import Banner from "../Banner/Banner"
 import Link from "next/link";
@@ -20,15 +20,6 @@ const Layout = ({ children, home, product }) => {
             <div className="children-content">
               {children}
             </div>
-          </>
-        ): 
-        
-        product ? (
-          <>
-            <Navbar />
-            <div className="product-content">
-              {children}
-            </div>
             
           </>
         ):(
@@ -42,18 +33,10 @@ const Layout = ({ children, home, product }) => {
         )
         
         }
-      {
-        !home && (
-          <div>
-            <Link href="/">
-              <a>🔙 Back to home</a>
-            </Link>
-
-          </div>
-        )
-      }
-      <Footer />
+      
+      
     </div>
+    <Footer/>
     </AuthContextProvider>
     
   );

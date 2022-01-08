@@ -1,21 +1,31 @@
 exports.handler = async(event, context) => {
-    const food = [
+    const data = [
         {
-            title:"The Shining",
-            author:"Kate Upton"
+            cuisine:"Meat Ball Special",
+            chef:"Kate Upton"
         },
         {
-            title:"Yes, the man came",
-            author:"Tina Prea"
+            cuisine:"Pasta Blanc",
+            chef:"Tina Prea"
         },
         {
-            title:"Possible Impossible",
-            author:"Liam Martin"
+            cuisine:"Pizarelli",
+            chef:"Liam Martin"
         }
     ]
 
-    return{
-        statusCode:200,
-        body: JSON.stringify(food)
+    if(context.clientContext.user){
+        return{
+            statusCode:200,
+            body: JSON.stringify(data)
+        }
     }
+
+    return{
+        statusCode: 401,
+        body: JSON.stringify({msg:"You have to log in first"})
+
+    }
+
+    
 }
