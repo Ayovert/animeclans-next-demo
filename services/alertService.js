@@ -28,6 +28,11 @@ function onAlert(id = defaultId){
 }
 
 function success(message, options) {
+    if(message)
+    {
+        console.log('Alert');
+    }
+    
     alert({...options, type: AlertType.Success, message})
 }
 

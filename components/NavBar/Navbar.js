@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./Navbar.module.css";
 import Image from 'next/image'
 import { useContext, useState, useEffect } from "react";
-import AuthContext from "../../stores/authContext";
+import AuthContext from "../../stores/authContext2";
 import { Button } from "@material-ui/core";
 
 
@@ -15,7 +15,7 @@ const Navbar =({home})=>
 {
   const { user, login, logout, authReady } = useContext(AuthContext);
 
-  console.log(user);
+  //console.log(user);
   
 
   const [scrolled,setScrolled]= useState(false);
@@ -60,7 +60,7 @@ const handleScroll=() => {
           <Image src="/logo.png" width={50} height={60} alt="Logo"/>
         </div>
         <div className={`${styles.navMenuContainer}`}>
-          {authReady && (
+          {/* {authReady && (*/}
 
       <ul className={`${styles.navMenu} ${isActive ? styles.active : null}`} key={""}>
           <li className={styles.navItem} >
@@ -106,7 +106,7 @@ const handleScroll=() => {
           variant="outlined">Logout</Button>
         </li>}
         </ul>
-          )}
+         {/* )}*/}
         </div>
         <div className={`${styles.hamburger} 
         ${isActive ? styles.active : null}`} 

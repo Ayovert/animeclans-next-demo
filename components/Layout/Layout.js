@@ -4,7 +4,7 @@ import Banner from "../Banner/Banner"
 import Link from "next/link";
 import styles from './Layout.module.css';
 import Image from "next/image";
-import { AuthContextProvider } from "../../stores/authContext";
+import  { AuthContextProvider }  from "../../stores/authContext2";
 
 
 
