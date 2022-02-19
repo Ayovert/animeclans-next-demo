@@ -3,12 +3,15 @@ import getConfig from 'next/config';
 import Router from 'next/router';
 
 import { fetchWrapper } from '../helpers';
+proreT : process
 
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}/users`;
 
+const isBrowser = typeof window !== 'undefined';
+
 console.log(baseUrl);
-const userSubject = new BehaviorSubject(process.browser && JSON.parse(localStorage.getItem('user')));
+const userSubject = new BehaviorSubject(isBrowser && JSON.parse(localStorage.getItem('user')));
 
 export const userService = {
     user: userSubject.asObservable(),
@@ -34,7 +37,7 @@ function logout() {
     // remove user from local storage, publish null to user subscribers and redirect to login page
     localStorage.removeItem('user');
     userSubject.next(null);
-    Router.push('login');
+    Router.push('account/login');
 }
 
 function register(user) {

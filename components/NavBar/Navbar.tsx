@@ -11,7 +11,7 @@ import { Button } from "@material-ui/core";
 
  
 
-const Navbar =({home})=>
+const Navbar =({home =false}) => 
 {
   const { user, login, logout, authReady } = useContext(AuthContext);
 
@@ -36,7 +36,7 @@ const handleScroll=() => {
     window.addEventListener('scroll',handleScroll)
 
     return () => {
-      setScrolled({})
+      setScrolled(false)
     };
   },[])
 

@@ -66,6 +66,8 @@
 }
 
 
+
+
 .navMenuContainer{
   margin: auto;
   /*border: 3px solid #91918bbe;
@@ -90,7 +92,6 @@
 .navLink{
   font-size: 1rem;
   font-weight: 400;
-  color: #000;
   
 }
 
@@ -117,7 +118,7 @@
   top: 0;
   left: 0;
   background-color: rgb(98, 102, 104);
-  color: #f1f1eb;
+  color: #f1f1eb !important;
 }
 
 .box{

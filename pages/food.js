@@ -1,20 +1,25 @@
+import { publicRuntimeConfig } from "next.config";
 import { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout/Layout";
-import AuthContext from "../stores/authContext";
+import AuthContext from "../stores/authContext2";
 function Food() {
 const { user, authReady } = useContext(AuthContext)
 const [foods, setFoods] = useState(null)
 const [error, setError] = useState(null)
 
+console.log(authReady);
+console.log(user);
+
+console.log(publicRuntimeConfig.apiUrl);
   useEffect(() => {
     if (authReady) {
-      fetch('/.netlify/functions/food', user && {
+      fetch('http://localhost:45001/users', user && {
         headers:{
-          Authorization: 'Bearer ' + user.token.access_token
+          Authorization: 'Bearer ' + user.token
         }
       })
       .then(res => {
-        console.log(res)
+        console.log("ayo  "+res)
         if(!res.ok){
           throw Error('you must be logged in to view this content')
         }

@@ -7,8 +7,8 @@ const { publicRuntimeConfig } = getConfig();
 export const fetchWrapper = {
     get,
     post,
-    //put,
-   // delete: _delete
+    put,
+   delete: _delete
 };
 
 function get(url){
@@ -30,6 +30,25 @@ async function post(url, body){
     const response = await fetch(url, requestOptions);
     return handleResponse(response);
 }
+
+function put(url, body) {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', ...authHeader(url) },
+        body: JSON.stringify(body)
+    };
+    return fetch(url, requestOptions).then(handleResponse);    
+}
+
+// prefixed with underscored because delete is a reserved word in javascript
+function _delete(url) {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: authHeader(url)
+    };
+    return fetch(url, requestOptions).then(handleResponse);
+}
+
 
 
 function authHeader(url){

@@ -1,5 +1,6 @@
 import { Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { string } from 'yup';
 
 export const alertService = {
     onAlert,
@@ -19,12 +20,13 @@ export const AlertType = {
 };
 
 const alertSubject = new Subject();
-const defaultId = 'default-alert';
+const defaultId  = 'default-alert';
+
 
 //enable subscribing to alerts observable
 
-function onAlert(id = defaultId){
-    return alertSubject.asObservable().pipe(filter(x => x && x.id === id));
+function onAlert(id : any = defaultId){
+    return alertSubject.asObservable().pipe(filter<any>(x => x && x.id === id));
 }
 
 function success(message, options) {

@@ -62,7 +62,11 @@ export const AuthContextProvider = ({children}) => {
 
 
     const login = () => {
-        userService.login();
+        router.push({
+            pathname: 'account/login',
+        query: {returnUrl : router.asPath}
+        });
+        //userService.login();
     }
 
     const logout = () =>{
@@ -79,3 +83,21 @@ export const AuthContextProvider = ({children}) => {
 }
 
 export default AuthContext;
+
+
+/*export interface IAuth{
+    user: any,
+    login: () => void,
+    logout: () => void,
+    authReady: boolean
+}
+
+export const authContext: IAuth= {
+    user: null,
+    login: () => {},
+    logout: () => {},
+    authReady: false
+}
+
+
+export const AuthContext = createContext<IAuth>(null)*/

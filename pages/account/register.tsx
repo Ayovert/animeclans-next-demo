@@ -11,6 +11,8 @@ export default Register;
 function Register() {
     const router = useRouter();
 
+    console.log("path " +router.asPath);
+
     //form validation rules
 
     const validationSchema = Yup.object().shape({
@@ -58,7 +60,7 @@ function Register() {
         .then(() => {
             alertService.success('Registration', {keepAfterRouteChange: true});
             //redirect to login page
-            //router.push('login');
+            router.push('login');
             console.log('success');
         })
         .catch(() =>{
@@ -110,7 +112,7 @@ function Register() {
                             {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                             Register
                         </button>
-                        <Link href="/account/login" className="btn btn-link">Cancel</Link>
+                        <Link href="./login"><a className="btn btn-link" >Cancel</a></Link>
                     </form>
                 </div>
             </div>
